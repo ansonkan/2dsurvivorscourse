@@ -1,9 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://cs05andlr7b2e"]
+[gd_scene load_steps=19 format=3 uid="uid://cs05andlr7b2e"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_hff2l"]
 [ext_resource type="Texture2D" uid="uid://c6o1velkpgg78" path="res://scenes/game_object/player/player.png" id="1_mg32n"]
 [ext_resource type="PackedScene" uid="uid://b61boxqnoat8g" path="res://scenes/component/health_component.tscn" id="2_a2s2j"]
 [ext_resource type="PackedScene" uid="uid://djl0tn58bo13b" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_eg73i"]
+[ext_resource type="PackedScene" uid="uid://b5oychufftmyb" path="res://scenes/component/velocity_component.tscn" id="2_k0f5b"]
+[ext_resource type="PackedScene" uid="uid://536gu5wijn40" path="res://scenes/component/random_stream_player_2d_component.tscn" id="5_mbpp8"]
+[ext_resource type="AudioStream" uid="uid://bt0hx42vkn7u" path="res://assets/audio/impactMining_000.ogg" id="6_uefdx"]
+[ext_resource type="AudioStream" uid="uid://cdy025vmyy28y" path="res://assets/audio/impactMining_001.ogg" id="7_w6mc6"]
+[ext_resource type="AudioStream" uid="uid://dk5moxs6q5gxx" path="res://assets/audio/impactMining_002.ogg" id="8_dj3sj"]
+[ext_resource type="AudioStream" uid="uid://cqv3me7om0rgm" path="res://assets/audio/impactMining_003.ogg" id="9_a4kor"]
+[ext_resource type="AudioStream" uid="uid://hqkyck8yd05y" path="res://assets/audio/impactMining_004.ogg" id="10_8s3yy"]
 
 [sub_resource type="Animation" id="Animation_1m5ou"]
 length = 0.001
@@ -91,9 +98,6 @@ _data = {
 "walk": SubResource("Animation_w16t5")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dib0y"]
-bg_color = Color(0.247059, 0.14902, 0.192157, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaigw"]
 bg_color = Color(0.262745, 0.882353, 0.701961, 1)
 border_width_left = 2
@@ -116,6 +120,10 @@ collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_hff2l")
 
+[node name="VelocityComponent" parent="." instance=ExtResource("2_k0f5b")]
+max_speed = 90
+acceleration = 25.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_eir6y")
@@ -126,6 +134,9 @@ libraries = {
 [node name="Abilities" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="Abilities" instance=ExtResource("2_eg73i")]
+
+[node name="HitRandomStreamPlayer" parent="." instance=ExtResource("5_mbpp8")]
+streams = Array[AudioStream]([ExtResource("6_uefdx"), ExtResource("7_w6mc6"), ExtResource("8_dj3sj"), ExtResource("9_a4kor"), ExtResource("10_8s3yy")])
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -138,14 +149,12 @@ offset_top = -23.0
 offset_right = 16.0
 offset_bottom = -17.0
 pivot_offset = Vector2(16, 3)
-theme_override_styles/background = SubResource("StyleBoxFlat_dib0y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vaigw")
 max_value = 1.0
 value = 0.5
 show_percentage = false
 
 [node name="PickupArea2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 0
 
@@ -160,7 +169,6 @@ texture = ExtResource("1_mg32n")
 offset = Vector2(0, -8)
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 8
 
