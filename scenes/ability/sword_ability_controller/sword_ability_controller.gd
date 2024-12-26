@@ -22,11 +22,7 @@ func on_timer_timeout():
 		return
 
 	var enemies = get_tree().get_nodes_in_group("enemy")
-	print("enemies = ")
-	print(enemies)
 	enemies = enemies.filter(func(enemy: Node2D): 
-		print("enemy = ")
-		print(enemy)
 		return enemy.global_position.distance_squared_to(player.global_position) < pow(MAX_RANGE, 2)
 	)
 	if enemies.size() == 0:
