@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var panel_container: PanelContainer = %PanelContainer
 
-var options_menu_scene = preload("res://scenes/ui/option_menu.tscn")
+var options_menu_scene = preload("res://scenes/ui/options_menu.tscn")
 var is_closing = false
 
 
@@ -52,6 +52,8 @@ func on_resume_pressed():
 
 
 func on_options_pressed():
+	ScreenTransaction.transition()
+	await ScreenTransaction.transitioned_halfway
 	var options_menu_instance = options_menu_scene.instantiate()
 	add_child(options_menu_instance)
 	options_menu_instance.back_pressed.connect(on_options_back_pressed.bind(options_menu_instance))
