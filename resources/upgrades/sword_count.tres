@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cng6xbmaoyi6y"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_wlb2d"]
+
+[resource]
+script = ExtResource("1_wlb2d")
+id = "sword_count"
+max_quantity = 5
+name = "Sword Count"
+description = "Adds 1 additional sword."
