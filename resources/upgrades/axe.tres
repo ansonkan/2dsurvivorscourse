@@ -9,4 +9,4 @@ ability_controller_scene = ExtResource("1_j81sh")
 id = "axe"
 max_quantity = 1
 name = "Axe"
-description = "Sends out a spinning axe every 3 seconds."
+description = "Sends out a spinning axe every 3.5 seconds."

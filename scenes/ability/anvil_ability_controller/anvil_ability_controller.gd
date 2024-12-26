@@ -1,8 +1,8 @@
 extends Node
 
-const BASE_RANGE = 50
-const BASE_DAMAGE = 15
-const BASE_SEPERATION = 10
+const BASE_RANGE = 100
+const BASE_DAMAGE = 40
+const BASE_SEPERATION = 30
 
 @export var anvil_ability_scene: PackedScene
 
@@ -34,7 +34,7 @@ func on_timer_timerout():
 		var spawn_position = initial_position + (direction * distance)
 		
 		t.tween_callback(spawn_anvil.bind(initial_position, spawn_position))
-		t.tween_interval(0.1)
+		t.tween_interval(0.15)
 	t.chain()
 	
 	is_attacking = false
@@ -53,6 +53,10 @@ func spawn_anvil(initial_position: Vector2, spawn_position: Vector2):
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade.id == "anvil_count":
-		anvil_count = current_upgrades["anvil_count"]["quantity"]
+	match upgrade.id:
+		"anvil_count":
+			anvil_count = current_upgrades["anvil_count"]["quantity"]
+		"anvil_count_adv":
+			anvil_count += 5
+		
 		

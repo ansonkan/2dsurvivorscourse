@@ -64,8 +64,16 @@ func update_health_display():
 
 
 func on_body_entered(other_body: Node2D):
-	number_colliding_bodies += 1
-	check_deal_damage()
+	var distance = self.global_position.distance_to(other_body.global_position)
+	print("[on_body_entered] distance = %f" % distance)
+#	There's a bug that player can be damaged by super far enemy
+#	Such enemy is not visible on screen, and it's "on_body_exited" will be called right after
+# 	damange is dealt.
+#	Adding this lazy check here just to workaround that
+	if distance <= 20:
+		number_colliding_bodies += 1
+		check_deal_damage()
+	
 
 
 func on_body_exited(other_body: Node2D):

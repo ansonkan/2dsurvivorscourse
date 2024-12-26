@@ -14,6 +14,7 @@ var upgrade_sword_count = preload("res://resources/upgrades/sword_count.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_anvil_count = preload("res://resources/upgrades/anvil_count.tres")
+var upgrade_anvil_count_adv = preload("res://resources/upgrades/anvil_count_adv.tres")
 
 
 func _ready() -> void:
@@ -40,8 +41,7 @@ func apply_upgrade(upgrade: AbilityUpgrade):
 		var current_quantity = current_upgrades[upgrade.id]["quantity"]
 		if current_quantity == upgrade.max_quantity:
 			upgrade_pool.remove_item(upgrade)
-			
-	print("current_upgrades: ", current_upgrades)
+	
 	update_upgrade_pool(upgrade)
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)
 
@@ -51,7 +51,8 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_axe.id:
 			upgrade_pool.add_item(upgrade_axe_damage, 10)
 		upgrade_anvil.id:
-			upgrade_pool.add_item(upgrade_anvil_count, 5)
+			upgrade_pool.add_item(upgrade_anvil_count, 7)
+			upgrade_pool.add_item(upgrade_anvil_count_adv, 3)
 
 
 func pick_upgrades() -> Array[AbilityUpgrade]:

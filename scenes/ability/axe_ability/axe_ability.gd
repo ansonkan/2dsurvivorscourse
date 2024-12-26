@@ -10,8 +10,16 @@ var base_rotation = Vector2.RIGHT
 func _ready() -> void:
 	base_rotation = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	var tween = create_tween()
-	tween.tween_method(tween_method, .0, 2.0, 3.0)
+	tween.tween_method(tween_method, .0, 2.0 * rand_sign(), 3.0)
 	tween.tween_callback(queue_free)
+	
+	
+func rand_sign() -> int:
+	if randf() >= 0.5:
+		return 1 
+	else: 
+		return -1
+	
 	
 func tween_method(rotations: float):
 	var percent = rotations / 2

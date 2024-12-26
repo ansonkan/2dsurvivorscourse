@@ -9,4 +9,4 @@ ability_controller_scene = ExtResource("1_pgh31")
 id = "anvil"
 max_quantity = 1
 name = "Anvil"
-description = "Drops anvils randomly on enemies every 5 seconds."
+description = "Drops anvils randomly on enemies every 4 seconds."
