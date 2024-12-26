@@ -3,7 +3,7 @@ extends Node
 const BASE_RANGE = 100
 const BASE_DAMAGE = 40
 const BASE_SEPERATION = 30
-const ROW_ANGLE = PI / 4
+const ROW_ANGLE = PI / 6
 
 @export var anvil_ability_scene: PackedScene
 

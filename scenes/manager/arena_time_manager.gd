@@ -7,7 +7,7 @@ const DIFFICULTY_INTERVAL = 5
 
 @export var end_screen_scene: PackedScene
 
-@onready var timer = $Timer
+@onready var timer: Timer = $Timer
 
 var arena_difficulty = 0
 
