@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bo54hhui8te6i"]
+[gd_scene load_steps=22 format=3 uid="uid://bo54hhui8te6i"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_upgrade_card.gd" id="1_3g72n"]
 [ext_resource type="PackedScene" uid="uid://b48jvvp8aric6" path="res://scenes/component/random_stream_player_component.tscn" id="2_mmjbs"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bo8g0208irh1d" path="res://assets/audio/switch8.ogg" id="10_2s0qa"]
 [ext_resource type="AudioStream" uid="uid://bvkndpnpp55lv" path="res://assets/audio/switch9.ogg" id="11_xmdxm"]
 [ext_resource type="AudioStream" uid="uid://c2ig6eusfu2ay" path="res://assets/audio/switch10.ogg" id="12_8lyw3"]
+[ext_resource type="Texture2D" uid="uid://qbcumbmeacc2" path="res://scenes/ability/axe_ability/axe.png" id="13_uhmpd"]
 
 [sub_resource type="Animation" id="Animation_snivu"]
 length = 0.001
@@ -224,6 +225,21 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_gqcix")
 }
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+offset_left = -18.0
+offset_top = -19.0
+offset_right = 12.0
+offset_bottom = 11.0
+size_flags_horizontal = 4
+texture = ExtResource("13_uhmpd")
+stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

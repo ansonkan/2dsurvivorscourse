@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://cng6xbmaoyi6y"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://cng6xbmaoyi6y"]
 
+[ext_resource type="Texture2D" uid="uid://b65qcnem0m7m4" path="res://scenes/ability/sword_ability/sword.png" id="1_ibumf"]
 [ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_wlb2d"]
 
 [resource]
@@ -8,3 +9,4 @@ id = "sword_count"
 max_quantity = 5
 name = "Sword Count"
 description = "Adds 1 additional sword."
+image = ExtResource("1_ibumf")

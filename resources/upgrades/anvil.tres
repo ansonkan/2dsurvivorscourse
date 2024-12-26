@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://dn6a0mvat7xqt"]
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://dn6a0mvat7xqt"]
 
 [ext_resource type="PackedScene" uid="uid://rwwlu56guu53" path="res://scenes/ability/anvil_ability_controller/anvil_ability_controller.tscn" id="1_pgh31"]
+[ext_resource type="Texture2D" uid="uid://df5hopprq8ifc" path="res://scenes/ability/anvil_ability/anvil.png" id="2_5q481"]
 [ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_o1l5c"]
 
 [resource]
@@ -10,3 +11,4 @@ id = "anvil"
 max_quantity = 1
 name = "Anvil"
 description = "Drops anvils randomly on enemies every 4 seconds."
+image = ExtResource("2_5q481")

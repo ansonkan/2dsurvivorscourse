@@ -14,7 +14,7 @@ var enemy_table = WeightedTable.new()
 var number_to_spawn = 1
 var max_enemies = 100
 var chance_to_spawm_clusters = 0
-var base_cluster_size = 10
+var base_cluster_size = 20
 
 func _ready() -> void:
 	enemy_table.add_item(basic_enemy_scene, 10)
@@ -52,16 +52,7 @@ func on_timer_timeout():
 	if player == null:
 		return
 		
-	var enemies = get_tree().get_nodes_in_group("enemy")
-	var spawn_quota = max(0, max_enemies - enemies.size())
-	var basic_number_to_spawn = min(spawn_quota, number_to_spawn)
-	
-	for i in basic_number_to_spawn:
-		spawn_enemy(enemy_table.pick_item() as PackedScene)
-	
-	var remaining_spawn_quota = max(spawn_quota - basic_number_to_spawn, 0)
-	if remaining_spawn_quota > 0 && randf() <= chance_to_spawm_clusters:
-		print("is spawning cluster!!! remaining_spawn_quota = %f" % remaining_spawn_quota)
+	if randf() <= chance_to_spawm_clusters:
 		var cluster_position = get_spawn_position(40)
 		print("cluster_position = %v" % cluster_position)
 		
@@ -69,6 +60,14 @@ func on_timer_timeout():
 		for i in base_cluster_size:
 			var rand_dir = Vector2.RIGHT.rotated(randf_range(0, TAU))
 			spawn_enemy(enemy_scene, cluster_position + (rand_dir * randf_range(0, 20)))
+		
+		
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	var spawn_quota = max(0, max_enemies - enemies.size())
+	var basic_number_to_spawn = min(spawn_quota, number_to_spawn)
+	
+	for i in basic_number_to_spawn:
+		spawn_enemy(enemy_table.pick_item() as PackedScene)
 
 
 func spawn_enemy(enemy_scene: PackedScene, position: Vector2 = get_spawn_position()):
@@ -105,10 +104,10 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 			chance_to_spawm_clusters = 0.05
 		45:
 			chance_to_spawm_clusters = 0.1
-			base_cluster_size = 50
+			base_cluster_size = 30
 		50:
 			max_enemies = 300
-			base_cluster_size = 100
+			base_cluster_size = 50
 			
 	if (arena_difficulty % 2) == 0:
 		number_to_spawn += 1

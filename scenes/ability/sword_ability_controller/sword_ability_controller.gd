@@ -54,7 +54,7 @@ func attack(enemy: Node2D):
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	match upgrade.id:
 		"sword_rate":
-			var percent_reduction = current_upgrades["sword_rate"]["quantity"] * .3
+			var percent_reduction = current_upgrades["sword_rate"]["quantity"] * .25
 			$Timer.wait_time = base_wait_time * max(1 - percent_reduction, 0.1)
 			$Timer.start()
 			print("sword wait time = ", $Timer.wait_time)

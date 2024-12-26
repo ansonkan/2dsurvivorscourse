@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://chi3dhgu28la4"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://chi3dhgu28la4"]
 
+[ext_resource type="Texture2D" uid="uid://df5hopprq8ifc" path="res://scenes/ability/anvil_ability/anvil.png" id="1_3iws2"]
 [ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_gi43y"]
 
 [resource]
@@ -8,3 +9,4 @@ id = "anvil_count"
 max_quantity = 10
 name = "Anvil Count"
 description = "Adds 2 additional anvils."
+image = ExtResource("1_3iws2")

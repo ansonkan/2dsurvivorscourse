@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://c3oqwjtvn4cn1"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://c3oqwjtvn4cn1"]
 
+[ext_resource type="Texture2D" uid="uid://c6o1velkpgg78" path="res://scenes/game_object/player/player.png" id="1_31p0a"]
 [ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_b7dhe"]
 
 [resource]
@@ -8,3 +9,4 @@ id = "player_speed"
 max_quantity = 2
 name = "Player Speed"
 description = "Increases player movement speed by 10%."
+image = ExtResource("1_31p0a")

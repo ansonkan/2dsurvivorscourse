@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://bk1gtv211gstj"]
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://bk1gtv211gstj"]
 
 [ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="1_bgiub"]
 [ext_resource type="PackedScene" uid="uid://tfmwf03cnlrt" path="res://scenes/ability/axe_ability_controller/axe_ability_controller.tscn" id="1_j81sh"]
+[ext_resource type="Texture2D" uid="uid://qbcumbmeacc2" path="res://scenes/ability/axe_ability/axe.png" id="2_h3081"]
 
 [resource]
 script = ExtResource("1_bgiub")
@@ -10,3 +11,4 @@ id = "axe"
 max_quantity = 1
 name = "Axe"
 description = "Sends out a spinning axe every 3.5 seconds."
+image = ExtResource("2_h3081")

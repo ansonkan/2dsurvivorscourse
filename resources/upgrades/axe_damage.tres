@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://s36ol3v0k0yk"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://s36ol3v0k0yk"]
 
 [ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_77f12"]
+[ext_resource type="Texture2D" uid="uid://qbcumbmeacc2" path="res://scenes/ability/axe_ability/axe.png" id="1_r814a"]
 
 [resource]
 script = ExtResource("1_77f12")
@@ -8,3 +9,4 @@ id = "axe_damage"
 max_quantity = 0
 name = "Axe Damage"
 description = "Increases axe damage by 35%."
+image = ExtResource("1_r814a")

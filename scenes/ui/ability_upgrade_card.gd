@@ -4,6 +4,7 @@ signal selected
 
 @onready var name_label: Label = $"%NameLabel"
 @onready var description_label: Label = $"%DescriptionLabel"
+@onready var texture_rect: TextureRect = $Control/TextureRect
 
 var disabled = false
 
@@ -26,6 +27,7 @@ func play_discard():
 func set_ability_upgrade(upgrade: AbilityUpgrade):
 	name_label.text = upgrade.name
 	description_label.text = upgrade.description
+	texture_rect.texture = upgrade.image
 
 
 func select_card():

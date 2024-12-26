@@ -51,13 +51,13 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_axe.id:
 			upgrade_pool.add_item(upgrade_axe_damage, 10)
 		upgrade_anvil.id:
-			upgrade_pool.add_item(upgrade_anvil_count, 7)
-			upgrade_pool.add_item(upgrade_anvil_count_adv, 3)
+			upgrade_pool.add_item(upgrade_anvil_count, 8)
+			upgrade_pool.add_item(upgrade_anvil_count_adv, 5)
 
 
 func pick_upgrades() -> Array[AbilityUpgrade]:
 	var chosen_upgrades: Array[AbilityUpgrade] = []
-	for i in 2:
+	for i in 3:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)

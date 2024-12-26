@@ -3,10 +3,12 @@ extends Node
 const BASE_RANGE = 100
 const BASE_DAMAGE = 40
 const BASE_SEPERATION = 30
+const ROW_ANGLE = PI / 4
 
 @export var anvil_ability_scene: PackedScene
 
 var anvil_count = 0
+var anvil_row = 0
 var is_attacking = false
 
 # Called when the node enters the scene tree for the first time.
@@ -25,10 +27,19 @@ func on_timer_timerout():
 		
 	is_attacking = true
 	
-	var t = get_tree().create_tween()
 	var direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	var spawn_range = randf_range(0, BASE_RANGE)
 	var initial_position = player.global_position
+	
+	for i in (anvil_row + 1):
+		spawn_anvil_row(initial_position, direction.rotated(ROW_ANGLE * i), spawn_range)
+	
+	is_attacking = false
+
+
+func spawn_anvil_row(initial_position: Vector2, direction: Vector2, spawn_range: float):
+	var t = get_tree().create_tween()
+	
 	for i in (anvil_count + 1):
 		var distance = spawn_range + (i * BASE_SEPERATION)
 		var spawn_position = initial_position + (direction * distance)
@@ -36,8 +47,6 @@ func on_timer_timerout():
 		t.tween_callback(spawn_anvil.bind(initial_position, spawn_position))
 		t.tween_interval(0.15)
 	t.chain()
-	
-	is_attacking = false
 
 
 func spawn_anvil(initial_position: Vector2, spawn_position: Vector2):
@@ -55,8 +64,8 @@ func spawn_anvil(initial_position: Vector2, spawn_position: Vector2):
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	match upgrade.id:
 		"anvil_count":
-			anvil_count = current_upgrades["anvil_count"]["quantity"]
+			anvil_count = current_upgrades["anvil_count"]["quantity"] * 2
 		"anvil_count_adv":
-			anvil_count += 5
+			anvil_row = current_upgrades["anvil_count_adv"]["quantity"]
 		
 		
